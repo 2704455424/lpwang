@@ -1,0 +1,110 @@
+{
+  "ProductKey": "a1SCOIdrrR9",
+  "DeviceName": "D001",
+  "DeviceSecret": "c6994889014596cc1167940410f25bb7"
+}
+
+指导文档：
+https://help.aliyun.com/document_detail/73742.html?spm=a2c4g.11186623.6.609.9O25Kd
+md5计算工具：
+https://1024tools.com/hmac
+
+阿里云服务器IP地址（华东2） :  *.iot-as-mqtt.cn-shanghai.aliyuncs.com    *表示自己账号的ProductKey注意替换
+阿里云服务器端口号（华东2） :  1883
+
+即远程主机IP就为:	a1SCOIdrrR9.iot-as-mqtt.cn-shanghai.aliyuncs.com 
+
+客户端ID ：  *|securemode=3,signmethod=hmacsha1|                                              			   *设备名称          	       注意替换
+ 
+用户名   ：  *&#                                                                                				   *设备名称 #ProductKey  注意替换                 
+
+密码     ：  用DeviceSecret做为秘钥对clientId*deviceName*productKey#进行hmacsha1加密后的结果     	   *设备名称 #ProductKey  注意替换
+
+
+客户端ID ：D001|securemode=3,signmethod=hmacsha1|
+
+用户名   ： D001&a1SCOIdrrR9
+
+密码     ： clientIdD001deviceNameD001productKeya1SCOIdrrR9
+
+加密：0ef750162fe4ad93fcf463fc5d5f82c666961dc4
+
+
+
+订阅的主题：（Topic在控制台里面）<常用>
+1、设备属性设置：
+/sys/${ProductKey}/${deviceName}/thing/service/property/set
+即：
+/sys/a1SCOIdrrR9/D001/thing/service/property/set
+
+2、设备属性上报：
+/sys/${ProductKey}/${deviceName}/thing/event/property/post
+即：
+/sys/a1SCOIdrrR9/D001/thing/event/property/post
+
+3、设备事件上报：
+/sys/a1SCOIdrrR9/${deviceName}/thing/event/${tsl.event.identifier}/post
+
+即：（GasCheck_Event举例）
+/sys/a1SCOIdrrR9/D001/thing/event/GasCheck_Event/post
+
+指令：
+AT				测试指令
+AT+CGMI				厂商信息
+AT+CGMR			固件库信息
+AT+CPIN?				查询卡是否插好
+AT+CSQ				信号质量
+AT+CREG?			网络注册状态
+AT+CGATT?			查询GPRS网络
+AT+CSTT="CMNET","",""		设置APN
+AT+CIICR				激活移动场景
+AT+CIFSR				查询IP
+
+设置MQTT相关参数
+AT+MCONFIG="D001|securemode=3,signmethod=hmacsha1|","D001&a1SCOIdrrR9","0ef750162fe4ad93fcf463fc5d5f82c666961dc4"
+
+建立TCP连接
+AT+MIPSTART="a1SCOIdrrR9.iot-as-mqtt.cn-shanghai.aliyuncs.com",1883
+	
+客户端向服务器请求会话连接，并设置保活命令，单位：s	
+AT+MCONNECT=0,600
+
+订阅主题:
+AT+MSUB="/sys/a1SCOIdrrR9/D001/thing/event/property/post",1
+AT+MSUB="/sys/a1SCOIdrrR9/D001/thing/service/property/set",1
+
+发布主题
+(属性上报)	
+AT+MPUB="/sys/a1SCOIdrrR9/D001/thing/event/property/post",1,0,"{\22PowerSwitch\22:0}"
+
+数据回应：
++MSUB: "/sys/a1SCOIdrrR9/D001/thing/event/property/post",17 byte,{"PowerSwitch":1}
+AT+MPUB="/sys/a1SCOIdrrR9/D001/thing/event/property/post",0,0,"{\22PowerSwitch\22:1}"
+
+OK
+
+PUBACK
+
++MSUB: "/sys/a1SCOIdrrR9/D001/thing/event/property/post",17 byte,{"PowerSwitch":1}
+
+(事件上报)
+AT+MPUB="/sys/a1SCOIdrrR9/D001/thing/event/GasCheck_Event/post",1,0,"{\22GasCheck_Event\22:1}"
+
+数据回应：
+AT+MPUB="/sys/a1SCOIdrrR9/D001/thing/event/GasCheck_Event/post",1,0,"{\22GasCheck_Event\22:1}"
+
+OK
+
+PUBACK
+
+
+接收服务器推送：
++MSUB: "/sys/a1SCOIdrrR9/D001/thing/service/property/set",102 byte,{"method":"thing.service.property.set","id":"1934023296","params":{"PowerSwitch":1},"version":"1.0.0"}
+
+
+设备上报数据
+AT+MPUB="/sys/a1SCOIdrrR9/D001/thing/event/property/post",1,0,"{\22method\22:\22thing.event.property.post\22,\22id\22:\220000000001\22,\22params\22:{\22PowerSwitch\22:1},\22version\22:\221.0.0\22}"
+
+
+关闭MQTT连接
+AT+MDISCONNECT

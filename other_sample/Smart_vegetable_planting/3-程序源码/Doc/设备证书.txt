@@ -1,0 +1,5 @@
+{
+  "ProductKey": "a1XsfLUnjwy",
+  "DeviceName": "ZHDP001",
+  "DeviceSecret": "014dbe1ac3570b3d90c172021ac08e16"
+}

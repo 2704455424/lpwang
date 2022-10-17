@@ -1,0 +1,907 @@
+{
+  "schema": "https://iotx-tsl.oss-ap-southeast-1.aliyuncs.com/schema.json",
+  "profile": {
+    "version": "1.0",
+    "productKey": "a1XsfLUnjwy"
+  },
+  "properties": [
+    {
+      "identifier": "EnvironmentTemperature",
+      "name": "环境温度",
+      "accessMode": "r",
+      "required": false,
+      "dataType": {
+        "type": "float",
+        "specs": {
+          "min": "-40.0",
+          "max": "55.0",
+          "unit": "°C",
+          "unitName": "摄氏度",
+          "step": "0.1"
+        }
+      }
+    },
+    {
+      "identifier": "EnvironmentHumidity",
+      "name": "环境湿度",
+      "accessMode": "r",
+      "required": false,
+      "dataType": {
+        "type": "float",
+        "specs": {
+          "min": "0",
+          "max": "100",
+          "unit": "%",
+          "unitName": "百分比",
+          "step": "0.1"
+        }
+      }
+    },
+    {
+      "identifier": "CO2",
+      "name": "二氧化碳浓度",
+      "accessMode": "r",
+      "required": false,
+      "dataType": {
+        "type": "int",
+        "specs": {
+          "min": "300",
+          "max": "5000",
+          "unit": "ppm",
+          "unitName": "百万分率",
+          "step": "1"
+        }
+      }
+    },
+    {
+      "identifier": "LightLux",
+      "name": "光照强度",
+      "accessMode": "r",
+      "required": false,
+      "dataType": {
+        "type": "float",
+        "specs": {
+          "min": "0",
+          "max": "10000",
+          "unit": "Lux",
+          "unitName": "卢克斯",
+          "step": "0.1"
+        }
+      }
+    },
+    {
+      "identifier": "SoilMoisture",
+      "name": "土壤湿度",
+      "accessMode": "r",
+      "required": false,
+      "dataType": {
+        "type": "float",
+        "specs": {
+          "min": "0",
+          "max": "100",
+          "unit": "%",
+          "unitName": "百分比",
+          "step": "0.1"
+        }
+      }
+    },
+    {
+      "identifier": "HeatSwitch",
+      "name": "加热开关",
+      "accessMode": "rw",
+      "required": false,
+      "dataType": {
+        "type": "bool",
+        "specs": {
+          "0": "关闭",
+          "1": "开启"
+        }
+      }
+    },
+    {
+      "identifier": "PowerSwitch",
+      "name": "电源开关",
+      "accessMode": "rw",
+      "required": false,
+      "dataType": {
+        "type": "bool",
+        "specs": {
+          "0": "关闭",
+          "1": "开启"
+        }
+      }
+    },
+    {
+      "identifier": "Humidified",
+      "name": "加湿开关",
+      "accessMode": "rw",
+      "required": false,
+      "dataType": {
+        "type": "bool",
+        "specs": {
+          "0": "关闭",
+          "1": "打开"
+        }
+      }
+    },
+    {
+      "identifier": "WaterOutletSwitch",
+      "name": "出水开关",
+      "accessMode": "rw",
+      "required": false,
+      "dataType": {
+        "type": "bool",
+        "specs": {
+          "0": "关",
+          "1": "开"
+        }
+      }
+    },
+    {
+      "identifier": "WotkSwitch",
+      "name": "工作开关",
+      "accessMode": "rw",
+      "required": false,
+      "dataType": {
+        "type": "bool",
+        "specs": {
+          "0": "关闭",
+          "1": "开启"
+        }
+      }
+    },
+    {
+      "identifier": "EnvTemp_Low_Threshold",
+      "name": "环境低温报警阈值",
+      "accessMode": "rw",
+      "required": false,
+      "dataType": {
+        "type": "float",
+        "specs": {
+          "min": "0",
+          "max": "100",
+          "unit": "°C",
+          "unitName": "摄氏度",
+          "step": "0.1"
+        }
+      }
+    },
+    {
+      "identifier": "EnvHumidity_Low_Threshold",
+      "name": "环境湿度低报警阈值",
+      "accessMode": "rw",
+      "required": false,
+      "dataType": {
+        "type": "float",
+        "specs": {
+          "min": "0",
+          "max": "100",
+          "unit": "°",
+          "unitName": "度",
+          "step": "0.1"
+        }
+      }
+    },
+    {
+      "identifier": "SoilHumidity_Low_Threshold",
+      "name": "土壤湿度低湿报警",
+      "accessMode": "rw",
+      "required": false,
+      "dataType": {
+        "type": "float",
+        "specs": {
+          "min": "0",
+          "max": "100",
+          "unit": "%RH",
+          "unitName": "相对湿度",
+          "step": "1"
+        }
+      }
+    },
+    {
+      "identifier": "LightLux_Max_Threshold",
+      "name": "光照强度最大值",
+      "accessMode": "rw",
+      "required": false,
+      "dataType": {
+        "type": "int",
+        "specs": {
+          "min": "0",
+          "max": "10000",
+          "unit": "Lux",
+          "unitName": "照度",
+          "step": "1"
+        }
+      }
+    },
+    {
+      "identifier": "CO2_Max_Threshold",
+      "name": "二氧化碳最大值",
+      "accessMode": "rw",
+      "required": false,
+      "dataType": {
+        "type": "int",
+        "specs": {
+          "min": "300",
+          "max": "2000",
+          "unit": "ppm",
+          "unitName": "百万分率",
+          "step": "1"
+        }
+      }
+    },
+    {
+      "identifier": "UploadTime",
+      "name": "数据上传周期",
+      "accessMode": "rw",
+      "required": false,
+      "dataType": {
+        "type": "int",
+        "specs": {
+          "min": "1",
+          "max": "65535",
+          "unit": "min",
+          "unitName": "分钟",
+          "step": "1"
+        }
+      }
+    },
+    {
+      "identifier": "SwitchMode",
+      "name": "开关工作模式",
+      "accessMode": "rw",
+      "required": false,
+      "dataType": {
+        "type": "bool",
+        "specs": {
+          "0": "自动模式",
+          "1": "手动模式"
+        }
+      }
+    }
+  ],
+  "events": [
+    {
+      "identifier": "post",
+      "name": "post",
+      "type": "info",
+      "required": true,
+      "desc": "属性上报",
+      "method": "thing.event.property.post",
+      "outputData": [
+        {
+          "identifier": "EnvironmentTemperature",
+          "name": "环境温度",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "-40.0",
+              "max": "55.0",
+              "unit": "°C",
+              "unitName": "摄氏度",
+              "step": "0.1"
+            }
+          }
+        },
+        {
+          "identifier": "EnvironmentHumidity",
+          "name": "环境湿度",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "%",
+              "unitName": "百分比",
+              "step": "0.1"
+            }
+          }
+        },
+        {
+          "identifier": "CO2",
+          "name": "二氧化碳浓度",
+          "dataType": {
+            "type": "int",
+            "specs": {
+              "min": "300",
+              "max": "5000",
+              "unit": "ppm",
+              "unitName": "百万分率",
+              "step": "1"
+            }
+          }
+        },
+        {
+          "identifier": "LightLux",
+          "name": "光照强度",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "10000",
+              "unit": "Lux",
+              "unitName": "卢克斯",
+              "step": "0.1"
+            }
+          }
+        },
+        {
+          "identifier": "SoilMoisture",
+          "name": "土壤湿度",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "%",
+              "unitName": "百分比",
+              "step": "0.1"
+            }
+          }
+        },
+        {
+          "identifier": "HeatSwitch",
+          "name": "加热开关",
+          "dataType": {
+            "type": "bool",
+            "specs": {
+              "0": "关闭",
+              "1": "开启"
+            }
+          }
+        },
+        {
+          "identifier": "PowerSwitch",
+          "name": "电源开关",
+          "dataType": {
+            "type": "bool",
+            "specs": {
+              "0": "关闭",
+              "1": "开启"
+            }
+          }
+        },
+        {
+          "identifier": "Humidified",
+          "name": "加湿开关",
+          "dataType": {
+            "type": "bool",
+            "specs": {
+              "0": "关闭",
+              "1": "打开"
+            }
+          }
+        },
+        {
+          "identifier": "WaterOutletSwitch",
+          "name": "出水开关",
+          "dataType": {
+            "type": "bool",
+            "specs": {
+              "0": "关",
+              "1": "开"
+            }
+          }
+        },
+        {
+          "identifier": "WotkSwitch",
+          "name": "工作开关",
+          "dataType": {
+            "type": "bool",
+            "specs": {
+              "0": "关闭",
+              "1": "开启"
+            }
+          }
+        },
+        {
+          "identifier": "EnvTemp_Low_Threshold",
+          "name": "环境低温报警阈值",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "°C",
+              "unitName": "摄氏度",
+              "step": "0.1"
+            }
+          }
+        },
+        {
+          "identifier": "EnvHumidity_Low_Threshold",
+          "name": "环境湿度低报警阈值",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "°",
+              "unitName": "度",
+              "step": "0.1"
+            }
+          }
+        },
+        {
+          "identifier": "SoilHumidity_Low_Threshold",
+          "name": "土壤湿度低湿报警",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "%RH",
+              "unitName": "相对湿度",
+              "step": "1"
+            }
+          }
+        },
+        {
+          "identifier": "LightLux_Max_Threshold",
+          "name": "光照强度最大值",
+          "dataType": {
+            "type": "int",
+            "specs": {
+              "min": "0",
+              "max": "10000",
+              "unit": "Lux",
+              "unitName": "照度",
+              "step": "1"
+            }
+          }
+        },
+        {
+          "identifier": "CO2_Max_Threshold",
+          "name": "二氧化碳最大值",
+          "dataType": {
+            "type": "int",
+            "specs": {
+              "min": "300",
+              "max": "2000",
+              "unit": "ppm",
+              "unitName": "百万分率",
+              "step": "1"
+            }
+          }
+        },
+        {
+          "identifier": "UploadTime",
+          "name": "数据上传周期",
+          "dataType": {
+            "type": "int",
+            "specs": {
+              "min": "1",
+              "max": "65535",
+              "unit": "min",
+              "unitName": "分钟",
+              "step": "1"
+            }
+          }
+        },
+        {
+          "identifier": "SwitchMode",
+          "name": "开关工作模式",
+          "dataType": {
+            "type": "bool",
+            "specs": {
+              "0": "自动模式",
+              "1": "手动模式"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "services": [
+    {
+      "identifier": "set",
+      "name": "set",
+      "required": true,
+      "callType": "async",
+      "desc": "属性设置",
+      "method": "thing.service.property.set",
+      "inputData": [
+        {
+          "identifier": "HeatSwitch",
+          "name": "加热开关",
+          "dataType": {
+            "type": "bool",
+            "specs": {
+              "0": "关闭",
+              "1": "开启"
+            }
+          }
+        },
+        {
+          "identifier": "PowerSwitch",
+          "name": "电源开关",
+          "dataType": {
+            "type": "bool",
+            "specs": {
+              "0": "关闭",
+              "1": "开启"
+            }
+          }
+        },
+        {
+          "identifier": "Humidified",
+          "name": "加湿开关",
+          "dataType": {
+            "type": "bool",
+            "specs": {
+              "0": "关闭",
+              "1": "打开"
+            }
+          }
+        },
+        {
+          "identifier": "WaterOutletSwitch",
+          "name": "出水开关",
+          "dataType": {
+            "type": "bool",
+            "specs": {
+              "0": "关",
+              "1": "开"
+            }
+          }
+        },
+        {
+          "identifier": "WotkSwitch",
+          "name": "工作开关",
+          "dataType": {
+            "type": "bool",
+            "specs": {
+              "0": "关闭",
+              "1": "开启"
+            }
+          }
+        },
+        {
+          "identifier": "EnvTemp_Low_Threshold",
+          "name": "环境低温报警阈值",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "°C",
+              "unitName": "摄氏度",
+              "step": "0.1"
+            }
+          }
+        },
+        {
+          "identifier": "EnvHumidity_Low_Threshold",
+          "name": "环境湿度低报警阈值",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "°",
+              "unitName": "度",
+              "step": "0.1"
+            }
+          }
+        },
+        {
+          "identifier": "SoilHumidity_Low_Threshold",
+          "name": "土壤湿度低湿报警",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "%RH",
+              "unitName": "相对湿度",
+              "step": "1"
+            }
+          }
+        },
+        {
+          "identifier": "LightLux_Max_Threshold",
+          "name": "光照强度最大值",
+          "dataType": {
+            "type": "int",
+            "specs": {
+              "min": "0",
+              "max": "10000",
+              "unit": "Lux",
+              "unitName": "照度",
+              "step": "1"
+            }
+          }
+        },
+        {
+          "identifier": "CO2_Max_Threshold",
+          "name": "二氧化碳最大值",
+          "dataType": {
+            "type": "int",
+            "specs": {
+              "min": "300",
+              "max": "2000",
+              "unit": "ppm",
+              "unitName": "百万分率",
+              "step": "1"
+            }
+          }
+        },
+        {
+          "identifier": "UploadTime",
+          "name": "数据上传周期",
+          "dataType": {
+            "type": "int",
+            "specs": {
+              "min": "1",
+              "max": "65535",
+              "unit": "min",
+              "unitName": "分钟",
+              "step": "1"
+            }
+          }
+        },
+        {
+          "identifier": "SwitchMode",
+          "name": "开关工作模式",
+          "dataType": {
+            "type": "bool",
+            "specs": {
+              "0": "自动模式",
+              "1": "手动模式"
+            }
+          }
+        }
+      ],
+      "outputData": []
+    },
+    {
+      "identifier": "get",
+      "name": "get",
+      "required": true,
+      "callType": "async",
+      "desc": "属性获取",
+      "method": "thing.service.property.get",
+      "inputData": [
+        "EnvironmentTemperature",
+        "EnvironmentHumidity",
+        "CO2",
+        "LightLux",
+        "SoilMoisture",
+        "HeatSwitch",
+        "PowerSwitch",
+        "Humidified",
+        "WaterOutletSwitch",
+        "WotkSwitch",
+        "EnvTemp_Low_Threshold",
+        "EnvHumidity_Low_Threshold",
+        "SoilHumidity_Low_Threshold",
+        "LightLux_Max_Threshold",
+        "CO2_Max_Threshold",
+        "UploadTime",
+        "SwitchMode"
+      ],
+      "outputData": [
+        {
+          "identifier": "EnvironmentTemperature",
+          "name": "环境温度",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "-40.0",
+              "max": "55.0",
+              "unit": "°C",
+              "unitName": "摄氏度",
+              "step": "0.1"
+            }
+          }
+        },
+        {
+          "identifier": "EnvironmentHumidity",
+          "name": "环境湿度",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "%",
+              "unitName": "百分比",
+              "step": "0.1"
+            }
+          }
+        },
+        {
+          "identifier": "CO2",
+          "name": "二氧化碳浓度",
+          "dataType": {
+            "type": "int",
+            "specs": {
+              "min": "300",
+              "max": "5000",
+              "unit": "ppm",
+              "unitName": "百万分率",
+              "step": "1"
+            }
+          }
+        },
+        {
+          "identifier": "LightLux",
+          "name": "光照强度",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "10000",
+              "unit": "Lux",
+              "unitName": "卢克斯",
+              "step": "0.1"
+            }
+          }
+        },
+        {
+          "identifier": "SoilMoisture",
+          "name": "土壤湿度",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "%",
+              "unitName": "百分比",
+              "step": "0.1"
+            }
+          }
+        },
+        {
+          "identifier": "HeatSwitch",
+          "name": "加热开关",
+          "dataType": {
+            "type": "bool",
+            "specs": {
+              "0": "关闭",
+              "1": "开启"
+            }
+          }
+        },
+        {
+          "identifier": "PowerSwitch",
+          "name": "电源开关",
+          "dataType": {
+            "type": "bool",
+            "specs": {
+              "0": "关闭",
+              "1": "开启"
+            }
+          }
+        },
+        {
+          "identifier": "Humidified",
+          "name": "加湿开关",
+          "dataType": {
+            "type": "bool",
+            "specs": {
+              "0": "关闭",
+              "1": "打开"
+            }
+          }
+        },
+        {
+          "identifier": "WaterOutletSwitch",
+          "name": "出水开关",
+          "dataType": {
+            "type": "bool",
+            "specs": {
+              "0": "关",
+              "1": "开"
+            }
+          }
+        },
+        {
+          "identifier": "WotkSwitch",
+          "name": "工作开关",
+          "dataType": {
+            "type": "bool",
+            "specs": {
+              "0": "关闭",
+              "1": "开启"
+            }
+          }
+        },
+        {
+          "identifier": "EnvTemp_Low_Threshold",
+          "name": "环境低温报警阈值",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "°C",
+              "unitName": "摄氏度",
+              "step": "0.1"
+            }
+          }
+        },
+        {
+          "identifier": "EnvHumidity_Low_Threshold",
+          "name": "环境湿度低报警阈值",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "°",
+              "unitName": "度",
+              "step": "0.1"
+            }
+          }
+        },
+        {
+          "identifier": "SoilHumidity_Low_Threshold",
+          "name": "土壤湿度低湿报警",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "%RH",
+              "unitName": "相对湿度",
+              "step": "1"
+            }
+          }
+        },
+        {
+          "identifier": "LightLux_Max_Threshold",
+          "name": "光照强度最大值",
+          "dataType": {
+            "type": "int",
+            "specs": {
+              "min": "0",
+              "max": "10000",
+              "unit": "Lux",
+              "unitName": "照度",
+              "step": "1"
+            }
+          }
+        },
+        {
+          "identifier": "CO2_Max_Threshold",
+          "name": "二氧化碳最大值",
+          "dataType": {
+            "type": "int",
+            "specs": {
+              "min": "300",
+              "max": "2000",
+              "unit": "ppm",
+              "unitName": "百万分率",
+              "step": "1"
+            }
+          }
+        },
+        {
+          "identifier": "UploadTime",
+          "name": "数据上传周期",
+          "dataType": {
+            "type": "int",
+            "specs": {
+              "min": "1",
+              "max": "65535",
+              "unit": "min",
+              "unitName": "分钟",
+              "step": "1"
+            }
+          }
+        },
+        {
+          "identifier": "SwitchMode",
+          "name": "开关工作模式",
+          "dataType": {
+            "type": "bool",
+            "specs": {
+              "0": "自动模式",
+              "1": "手动模式"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
